@@ -2,7 +2,9 @@ import {Component, Input} from '@angular/core';
 
 @Component( {
   selector: 'app-square',
-  template: `<button>{{value}}</button>`,
+  template: `<button *ngIf="!value">{{value}}</button>
+             <button *ngIf="value == 'X'" style="color: blue;">{{value}}</button>
+             <button *ngIf="value == 'O'" style="color: red;">{{value}}</button>`,
   styles: [
     'button { width: 100%; height: 100%; font-size: 5em !important; }'
   ]
