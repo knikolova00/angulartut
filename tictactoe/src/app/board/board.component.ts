@@ -59,6 +59,11 @@ export class BoardComponent implements OnInit {
         return this.squares[ a ];
       }
     }
+    // All squares are filled and no winner
+    if ( this.squares.every( ( square ) => square !== null ) ) {
+      return 'Draw';
+    }
+
     return '';
   }
 }

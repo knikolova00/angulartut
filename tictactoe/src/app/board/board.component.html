@@ -1,8 +1,13 @@
-<h1>Current Player: {{player}}</h1>
+<h1 style="font-family: 'Courier New', Courier, monospace;">Current Player: {{player}}</h1>
 
-<button (click)="newGame()">Start new game</button>
+<button style="font-family: 'Courier New', Courier, monospace; margin-bottom: 10px;" (click)="newGame()">Start new
+  game</button>
 
-<h2 *ngIf="winner">Winner: {{winner}}</h2>
+<h2 style="font-family: 'Courier New', Courier, monospace;" *ngIf="winner=='X' or winner=='O'; else elseBlock">Winner:
+  {{winner}}</h2>
+<ng-template #elseBlock>
+  <h2 style="font-family: 'Courier New', Courier, monospace;" *ngIf="calculateWinner()=='Draw'">Draw!</h2>
+</ng-template>
 
 <main>
   <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)">
